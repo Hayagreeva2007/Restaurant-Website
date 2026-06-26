@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Selected Volumes - Cart</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo"><i class="fas fa-feather-alt" style="color:var(--gold);"></i> The Writers <span>Cafe</span></a>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="menu.html" class="nav-link">Menu</a></li>
+        <li><a href="cart.html" class="nav-link active">Cart</a></li>
+        <li><a href="checkout.html" class="nav-link">Checkout</a></li>
+      </ul>
+      <div style="display:flex; align-items:center; gap:15px;"><span class="cart-btn"><i class="fas fa-shopping-bag"></i><span class="cart-counter">0</span></span></div>
+    </div>
+  </nav>
+
+  <!-- CART CONTENT -->
+  <section class="section-padding" style="margin-top: 70px; min-height: 80vh;">
+    <div class="container">
+      <h2 class="title" style="margin-bottom: 20px;">Your Selected Volumes</h2>
+      <div class="cart-page-grid">
+        <div class="cart-card" id="cart-table-body"></div>
+        <div class="cart-card">
+          <h3 style="margin-bottom: 15px; border-bottom: 2px solid var(--gold); padding-bottom: 8px;">Synopsis</h3>
+          <div class="coupon-box">
+            <input type="text" id="coupon-code" class="coupon-input" placeholder="Coupon (e.g. WRITER20)">
+            <button id="apply-coupon-btn" class="btn btn-primary" style="padding: 8px 16px; font-size:12px;">Apply</button>
+          </div>
+          <div class="drawer-row" style="margin: 8px 0;"><span>Subtotal:</span><span id="c-sub">₹0</span></div>
+          <div class="drawer-row" style="margin: 8px 0;"><span>GST (18%):</span><span id="c-gst">₹0</span></div>
+          <div class="drawer-row" style="margin: 8px 0; color:#2e7d32;"><span>Promo Discount:</span><span id="c-disc">-₹0</span></div>
+          <div class="drawer-row total" style="margin: 15px 0 20px;"><span>Grand Total:</span><span id="c-grand">₹0</span></div>
+          <a href="checkout.html" class="btn btn-primary" style="display:block; text-align:center; width:100%; margin-bottom:10px;">Proceed to Checkout</a>
+          <a href="menu.html" class="btn btn-outline" style="display:block; text-align:center; width:100%;">Continue Dining</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

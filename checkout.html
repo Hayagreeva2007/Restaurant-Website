@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - The Writers Cafe</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo"><i class="fas fa-feather-alt" style="color:var(--gold);"></i> The Writers <span>Cafe</span></a>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="menu.html" class="nav-link">Menu</a></li>
+        <li><a href="cart.html" class="nav-link">Cart</a></li>
+        <li><a href="checkout.html" class="nav-link active">Checkout</a></li>
+      </ul>
+      <div style="display:flex; align-items:center; gap:15px;"><span class="cart-btn"><i class="fas fa-shopping-bag"></i><span class="cart-counter">0</span></span></div>
+    </div>
+  </nav>
+
+  <!-- CHECKOUT -->
+  <section class="section-padding" style="margin-top:70px; min-height:80vh;">
+    <div class="container">
+      <h2 class="title" style="margin-bottom:25px;">Finalize Your Order</h2>
+      <form id="checkout-form">
+        <div class="checkout-grid">
+          <div>
+            <!-- Details -->
+            <div class="cart-card" style="margin-bottom: 20px;">
+              <h3 style="margin-bottom:15px; color:var(--gold);"><i class="fas fa-map-marked-alt"></i> Delivery Details</h3>
+              <div class="form-group"><label class="form-label">Full Name *</label><input type="text" id="cust-name" class="form-control" placeholder="Johnathan Swift" required></div>
+              <div class="form-group"><label class="form-label">Address *</label><input type="text" id="cust-address" class="form-control" placeholder="Flat No, Building, Street" required></div>
+            </div>
+            
+            <!-- Speed -->
+            <div class="cart-card" style="margin-bottom: 20px;">
+              <h3 style="margin-bottom:10px; color:var(--gold);"><i class="fas fa-shipping-fast"></i> Delivery Speed</h3>
+              <div class="delivery-options">
+                <div class="delivery-card active" id="del-std" data-speed="standard"><h5>Standard</h5><p style="font-size:12px;color:var(--text-muted);">35-45 min (FREE)</p></div>
+                <div class="delivery-card" id="del-exp" data-speed="express"><h5>Express</h5><p style="font-size:12px;color:var(--text-muted);">15-25 min (₹80)</p></div>
+              </div>
+            </div>
+
+            <!-- Payment -->
+            <div class="cart-card">
+              <h3 style="margin-bottom:15px; color:var(--gold);"><i class="fas fa-credit-card"></i> Payment Method</h3>
+              <div class="pay-tabs">
+                <button type="button" class="pay-tab active" data-method="card">Card</button>
+                <button type="button" class="pay-tab" data-method="upi">UPI</button>
+                <button type="button" class="pay-tab" data-method="cod">COD</button>
+              </div>
+              <input type="hidden" id="payment-method-val" value="card">
+              
+              <div class="pay-pane active" id="pane-card">
+                <input type="text" id="card-num" class="form-control" style="margin-bottom:10px;" placeholder="Card Number (16-digits)">
+                <input type="password" class="form-control" placeholder="CVV">
+              </div>
+              <div class="pay-pane" id="pane-upi">
+                <input type="text" id="upi-id" class="form-control" placeholder="username@upi" style="margin-bottom:10px;">
+                <div style="text-align:center; padding:10px; background:#fff; border-radius:6px;"><i class="fas fa-qrcode" style="font-size:40px;"></i><br><small style="color:#666;">Scan simulator QR code</small></div>
+              </div>
+              <div class="pay-pane" id="pane-cod">
+                <p style="font-size:13px; text-align:center; color:var(--text-muted);"><i class="fas fa-hand-holding-usd" style="font-size:24px; color:var(--gold);"></i><br>Pay to our dispatch rider on delivery.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Summary -->
+          <div class="cart-card" style="height:fit-content;">
+            <h3 style="margin-bottom: 15px; border-bottom: 2px solid var(--gold); padding-bottom: 8px;">Order Synopsis</h3>
+            <div id="ch-items" style="margin-bottom:15px; border-bottom: 1px solid rgba(0,0,0,0.08); padding-bottom:10px;"></div>
+            <div class="drawer-row" style="margin: 6px 0;"><span>Subtotal:</span><span id="ch-sub">₹0</span></div>
+            <div class="drawer-row" style="margin: 6px 0;"><span>GST (18%):</span><span id="ch-gst">₹0</span></div>
+            <div class="drawer-row" style="margin: 6px 0;"><span>Delivery:</span><span id="ch-del">₹0</span></div>
+            <div class="drawer-row" style="margin: 6px 0; color:#2e7d32;"><span>Discount:</span><span id="ch-disc">-₹0</span></div>
+            <div class="drawer-row total" style="margin: 12px 0 20px;"><span>Grand Total:</span><span id="ch-grand">₹0</span></div>
+            <button type="submit" class="btn btn-primary" style="width:100%; text-align:center; display:block; margin-bottom:10px;">Place Simulated Order</button>
+            <a href="menu.html" class="btn btn-outline" style="width:100%; text-align:center; display:block;">Continue Dining</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- SUCCESS MODAL -->
+  <div class="modal" id="success-modal">
+    <div class="modal-card">
+      <div class="success-icon"><i class="fas fa-check-circle"></i></div>
+      <h3 style="font-family:var(--font-brand); margin-bottom:10px;">Order Published!</h3>
+      <p style="font-size:14px; color:var(--text-muted);">Your order has been compiled successfully by our culinary scribes.</p>
+      <div class="order-rec">
+        <div>Order Number: <strong id="rec-num" style="color:var(--gold);">TWC-12345</strong></div>
+        <div style="margin-top:5px;">Address: <span id="rec-address"></span></div>
+      </div>
+      <button class="btn btn-primary" id="close-modal-btn" style="width:100%;">Return Home</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+/* --- BEGINNER RESPONSIVE OVERRIDES (Under 30 lines) --- */
+@media screen and (max-width: 768px) {
+  .menu-toggle { display: block; }
+  .nav-menu {
+    position: fixed; top: 70px; left: -100%; width: 100%; height: calc(100vh - 70px);
+    background: var(--bg-dark); flex-direction: column; align-items: center;
+    padding-top: 50px; gap: 20px; transition: var(--transition); z-index: 99;
+  }
+  .nav-menu.active { left: 0; }
+  .nav-link { font-size: 16px; }
+  
+  /* Stack Grid Columns */
+  .about-grid, .contact-grid, .cart-page-grid, .checkout-grid {
+    grid-template-columns: 1fr !important;
+    gap: 30px;
+  }
+  
+  .hero-title { font-size: 36px; }
+  .about-img { height: 280px; }
+}
